@@ -1,0 +1,98 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <form [formGroup]="Sign" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+          <label for="" class="form-label">Full Name</label>
+          <input type="text" class="form-control" id="firstname" formControlName="name"
+            [ngClass]="{ 'is-invalid': FormSubmitted && formSignControl['name'].errors}" />
+          <div *ngIf="FormSubmitted && formSignControl['name'].errors" class="invalid-feedback">
+            <div *ngIf="formSignControl['name'].errors['required']">Name is required</div>
+            <div *ngIf="formSignControl['name'].errors['pattern']">Name is invalid</div>
+          </div>
+        </div>
+        <!-- <div class="mb-3">
+          <label for="" class="form-label"></label>
+        </div> -->
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Mobile No</label>
+          <input type="text" class="form-control" id="mobileno" formControlName="mob"
+            [ngClass]="{ 'is-invalid': FormSubmitted && formSignControl['mob'].errors}" />
+          <div *ngIf="FormSubmitted && formSignControl['mob'].errors" class="invalid-feedback">
+            <div *ngIf="formSignControl['mob'].errors['required']">mobile no is required</div>
+            <div *ngIf="formSignControl['mob'].errors['pattern']">mobile no is invalid</div>
+            <div *ngIf="formSignControl['mob'].errors['minlength']">
+              Mobile must be at least 10 number
+            </div>
+            <div *ngIf="formSignControl['mob'].errors['maxlength']">
+              Mobile must not exceed 10 number
+            </div>
+          </div>  
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Email address</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" formControlName="email"
+            aria-describedby="emailHelp"
+            [ngClass]="{ 'is-invalid': FormSubmitted && formSignControl['email'].errors}" />
+          <div *ngIf="FormSubmitted && formSignControl['email'].errors" class="invalid-feedback">
+            <div *ngIf="formSignControl['email'].errors['required']">Email is required</div>
+            <div *ngIf="formSignControl['email'].errors['email']">Email is invalid</div>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input type="password" class="form-control" id="exampleInputPassword1" formControlName="pass"
+            [ngClass]="{ 'is-invalid': FormSubmitted && formSignControl['pass'].errors}"/>
+            <div *ngIf="FormSubmitted && formSignControl['pass'].errors" class="invalid-feedback">
+              <div *ngIf="formSignControl['pass'].errors['required']">password is required</div>
+              <div *ngIf="formSignControl['pass'].errors['minlength']">
+                Password must be at least 5 
+              </div>
+              <div *ngIf="formSignControl['pass'].errors['maxlength']">
+                Password must not exceed 10 
+              </div>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary me-2">Submit</button>
+        <!-- < type="submit" class="btn btn-secondary me-2" (Click)="GetData()">GetInfo</ > -->
+        <button type="button" class="btn btn-primary me-2" (click)="updateInfo(users,id)">Update</button>
+      </form>
+
+      <hr>
+      <p>Form value:{{Sign.value | json}}</p>
+    </div>
+    <div class="col-md-8">
+      <!-- <app-view-info></app-view-info> -->
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">id</th>
+            <th scope="col">Full Name</th>
+            <th scope="col">Mobile</th>
+            <th scope="col">email</th>
+            <th scope="col">password</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of users let i=index">
+            <th>{{i+1}}</th>
+            <td>{{item.name}}</td>
+            <td>{{item.mob}}</td>
+            <td>{{item.email}}</td>
+            <td>{{item.pass}}</td>
+            <td>
+              <input type="button" value="Edit" class="btn btn-success me-2" (click)="EditInfo(item,i)">
+              <input type="button" value="Delete" class="btn btn-danger me-2" (click)="deleteInfo(i)">
+            </td>
+          </tr>
+          
+        </tbody>
+      </table>
+
+    </div>
+
+  </div>
+
+</div>

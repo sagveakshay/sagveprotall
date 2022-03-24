@@ -1,0 +1,53 @@
+<!-- creating dymanic -->
+<!-- <p>{{ message }}</p> -->
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-primary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">User Info</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="/login">Login</a>
+        </li>
+        <li class="nav-item">
+          <a  class="nav-link" routerLink="/sign">Sign up</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/view">View</a>
+        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link" routerLink="/farray">FromArray</a>
+        </li> -->
+        
+        
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">About Us</a>
+        </li>
+      </ul>
+      <form class="d-flex">
+        <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> -->
+        <button class="btn btn-success me-2" type="submit" (click)="getAlert()">Search</button>
+        <button class="btn btn-success me-2" type="submit" (click)="logout()">Logout</button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+<!-- <app-sign-page></app-sign-page> -->
+<!-- <app-view-info [testVariable]="testVariable"></app-view-info> -->
+<router-outlet></router-outlet>
+<!-- <p>today date is:{{birthday| date}}</p>
+<p>upper case:{{upper | uppercase}}</p>
+<p>lower case:{{lower | lowercase}}</p>
+<p>A: {{a | currency}}</p>
+<p>
+  No specified formatting:
+  {{pi | number}}
+  <!--output: '3.142'-->
+<!-- </p> -->
+<!-- <p>A: {{b | percent}}</p> -->
+

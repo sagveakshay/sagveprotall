@@ -1,0 +1,80 @@
+<!-- <table class="table">
+    <thead>
+      <tr >
+        <th scope="col">#</th>
+        <th scope="col">Full Name</th>
+        <th scope="col">Mobile</th>
+        <th scope="col">email</th>
+        <th scope="col">password</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>ggg</td>
+        <td>63363</td>
+        <td>@mdo</td>
+        <td>mark123</td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>Jacob</td>
+        <td>342555</td>
+        <td>@fat</td>
+        <td>jacob123</td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td>Larry the Bird</td>
+        <td>123124</td>
+        <td>@twitter</td>
+        <td>Larry1232</td>
+      </tr>
+    </tbody>
+  </table> -->
+<div class="container">
+  <div class="col-md-12">
+    <!-- <app-view-info></app-view-info> -->
+     <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Full Name</th>
+          <th scope="col">Mobile</th>
+          <th scope="col">email</th>
+          <th scope="col">password</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of users">
+          <th scope="row">1</th>
+          <td>{{item.name}}</td>
+          <td>{{item.mob}}</td>
+          <td>{{item.email}}</td>
+          <td>{{item.pass}}</td>
+          <td>
+            <input type="button" value="Edit" class="btn btn-success me-2">
+            <input type="button" value="Delete" class="btn btn-danger me-2" (click)="deleteInfo(users)">
+          </td>
+        </tr>
+        <!-- <tr>
+          <th scope="row">2</th>
+          <td>Jacob</td>
+          <td>342555</td>
+          <td>@fat</td>
+          <td>jacob123</td>
+        </tr> -->
+        <!-- <tr>
+          <th scope="row">3</th>
+          <td>Larry the Bird</td>
+          <td>123124</td>
+          <td>@twitter</td>
+          <td>Larry1232</td>
+        </tr> -->
+      </tbody>
+    </table> 
+  
+  </div>
+</div>

@@ -1,0 +1,40 @@
+<div class="container">
+    <form>
+        <h1>cascading Dropdown</h1>
+        <div class="form-group">
+            <button type="submit" (click)="onSubmit()" class="btn btn-danger btn-lg btn-block">
+                Submit
+            </button>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <label class="control-label" for="Country">Country:</label>
+                <select class="form-control input-lg" (change)="onSelect($event)">
+                    <option value="0">Select Country</option>
+                    <option *ngFor="let country of countries" value="{{ country.id }}">
+                        {{ country.name }}
+                      </option>
+                </select>
+            </div>
+            <div class="col-md-4">
+                <label class="control-label" for="states">States:</label>
+                <select class="form-control input-lg" (change)="Select($event)">
+                    <option value="0">Select states</option>
+                    <option *ngFor="let state of states" value="{{ state.id }}">
+                        {{ state.name }}
+                      </option>
+                </select>
+            </div>
+            <div class="col-md-4">
+                <label class="control-label" for="city">City:</label>
+                <select class="form-control input-lg">
+                    <option value="0">Select City</option>
+                    <option *ngFor="let city of city" value="{{ city.id }}">
+                        {{ city.name }}
+                      </option>
+                </select>
+            </div>
+        </div>
+
+    </form>
+</div>

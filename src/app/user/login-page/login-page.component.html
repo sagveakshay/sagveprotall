@@ -1,0 +1,36 @@
+<div class="container">
+  <form [formGroup]="Login" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Email address</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+        formControlName="email" [ngClass]="{ 'is-invalid': submitted && loginFormControl['email'].errors }" />
+      <!-- <span class="text-danger" *ngIf="">Email is requried</span> -->
+      <div *ngIf="submitted && loginFormControl['email'].errors" class="invalid-feedback">
+        <div *ngIf="loginFormControl['email'].errors['required']">Email is required</div>
+        <div *ngIf="loginFormControl['email'].errors['email']">Email is invalid</div>
+      </div>
+    </div>
+    <!-- <span class="text-danger" *ngIf="(user && user.invalid && user.touched)">Email is requried</span> -->
+
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input type="password" class="form-control" id="exampleInputPassword1" formControlName="pass"
+        [ngClass]="{ 'is-invalid': submitted && loginFormControl['pass'].errors }"/>
+        <div *ngIf="submitted && loginFormControl['pass'].errors" class="invalid-feedback">
+          <div *ngIf="loginFormControl['pass'].errors['required']">password is required</div>
+          <div *ngIf="loginFormControl['pass'].errors['minlength']">
+            password must be at least 5 number
+          </div>
+          <div *ngIf="loginFormControl['pass'].errors['maxlength']">
+            pass must not exceed 5 number
+          </div>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  <hr>
+  <p>Form value:{{Login.value | json}}</p>
+
+</div>
+<!-- <h1> input from input field:{{displayValue}}</h1> -->
